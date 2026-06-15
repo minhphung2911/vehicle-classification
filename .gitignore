@@ -1,0 +1,22 @@
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+.venv311/
+venv/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Keep directory structures but ignore generated files
+data/*
+!data/.gitkeep
+
+models/*
+!models/.gitkeep
+
+outputs/*
+!outputs/.gitkeep

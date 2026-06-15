@@ -1,51 +1,38 @@
 ```
 vehicle-classification/
 │
-├── data/                        # TV1 tạo và quản lý
-│   ├── raw/                     # ảnh thô chưa xử lý
-│   │   ├── train/
-│   │   │   ├── car/
-│   │   │   ├── motorbike/
-│   │   │   ├── bus/
-│   │   │   └── truck/
-│   │   └── test/
-│   │       ├── car/
-│   │       ├── motorbike/
-│   │       ├── bus/
-│   │       └── truck/
-│   └── processed/               # TV1 xuất ra, TV2 dùng tiếp
-│       ├── images.npy
-│       ├── images_flat.npy
-│       └── labels.npy
+├── Dataset/                          # TV B quản lý (dữ liệu gốc)
+│   ├── Bus/
+│   ├── Car/
+│   ├── Motorcycle/                   # sửa lại từ "motorcycle"
+│   └── Truck/
 │
-├── models/                      # TV2 xuất ra, TV3+TV4 dùng tiếp
+├── data/                             # TV B xuất ra, TV D + TV A dùng
+│   ├── images.npy
+│   ├── labels.npy
+│   ├── class_names.npy
+│   ├── anh_mau_tung_lop.png
+│   └── phan_phoi_nhan.png
+│
+├── models/                           # TV D xuất ra, TV A dùng
 │   ├── model_v1_relu.h5
 │   └── model_v2_sigmoid.h5
 │
-├── outputs/                     # TV3 xuất ra, TV4 dùng cho báo cáo
-│   ├── confusion_matrix.png
-│   ├── classification_report.csv
+├── outputs/                          # TV D xuất ra, đưa vào báo cáo
 │   ├── loss_curve_v1.png
-│   └── loss_curve_v2.png
+│   ├── loss_curve_v2.png
+│   ├── confusion_matrix.png
+│   └── classification_report.csv
 │
-├── examples/                    # TV4 chuẩn bị ảnh test demo
-│   ├── car_test.jpg
-│   ├── motorbike_test.jpg
+├── examples/                         # TV A chuẩn bị, dùng khi demo
 │   ├── bus_test.jpg
-│   └── truck_hard.jpg           # ảnh khó để demo phân tích lỗi
+│   ├── car_test.jpg
+│   ├── motorcycle_test.jpg
+│   ├── truck_test.jpg
+│   └── truck_hard.jpg                # ảnh khó để phân tích lỗi
 │
-├── src/                         # SOURCE CODE CHÍNH
-│   ├── tv1_preprocessing.py     # TV1
-│   ├── tv2_train.py             # TV2
-│   ├── tv3_evaluate.py          # TV3
-│   └── tv4_demo.py              # TV4
-│
-├── notebooks/                   # Jupyter Notebook từng thành viên
-│   ├── TV1_EDA_Preprocessing.ipynb
-│   ├── TV2_Train_Model.ipynb
-│   ├── TV3_Evaluate.ipynb
-│   └── TV4_Demo.ipynb
-│
-├── requirements.txt             # TV4 tạo
-└── README.md                    # TV4 tạo
+├── tv_A_demo.py                      # TV A viết
+├── tv_B_preprocessing.py             # TV B viết (đã có)
+├── tv_C_model.py                     # TV C viết (bạn)
+└── tv_D_train.py                     # TV D viết
 ```
