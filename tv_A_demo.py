@@ -1,18 +1,13 @@
-```python
 import gradio as gr
 import tensorflow as tf
 import numpy as np
 import matplotlib.pyplot as plt
 
-# =====================================================
 # IMPORT HÀM TIỀN XỬ LÝ TỪ TV B
-# =====================================================
 
 from tv_B_preprocessing import preprocess_image
 
-# =====================================================
 # LOAD MODEL ĐÃ TRAIN
-# =====================================================
 
 MODEL_PATH = "models/model_v1_relu.h5"
 
@@ -24,9 +19,7 @@ model = tf.keras.models.load_model(MODEL_PATH)
 
 print(f"[INFO] Đã load model từ: {MODEL_PATH}")
 
-# =====================================================
 # LOAD TÊN CÁC LỚP
-# =====================================================
 
 try:
     class_names = np.load(
@@ -48,9 +41,7 @@ except:
         "Truck"
     ])
 
-# =====================================================
 # HÀM VẼ BIỂU ĐỒ XÁC SUẤT
-# =====================================================
 
 def create_probability_chart(probabilities):
 
@@ -88,9 +79,7 @@ def create_probability_chart(probabilities):
 
     return fig
 
-# =====================================================
 # HÀM DỰ ĐOÁN
-# =====================================================
 
 def classify_vehicle(image_path):
 
@@ -99,9 +88,7 @@ def classify_vehicle(image_path):
 
     try:
 
-        # ------------------------------------------
         # TIỀN XỬ LÝ ẢNH
-        # ------------------------------------------
 
         image_vector = preprocess_image(image_path)
 
@@ -115,9 +102,7 @@ def classify_vehicle(image_path):
             axis=0
         )
 
-        # ------------------------------------------
         # DỰ ĐOÁN
-        # ------------------------------------------
 
         prediction = model.predict(
             image_vector,
@@ -156,9 +141,7 @@ def classify_vehicle(image_path):
 
         return f"Lỗi:\n{str(e)}", None
 
-# =====================================================
 # GIAO DIỆN GRADIO
-# =====================================================
 
 demo = gr.Interface(
 
@@ -196,9 +179,7 @@ Mô hình sử dụng MLP Neural Network.
     ]
 )
 
-# =====================================================
 # CHẠY CHƯƠNG TRÌNH
-# =====================================================
 
 if __name__ == "__main__":
 
@@ -207,5 +188,3 @@ if __name__ == "__main__":
     print("=" * 60)
 
     demo.launch()
-```
-
