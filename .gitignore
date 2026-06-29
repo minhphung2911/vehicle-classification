@@ -17,6 +17,7 @@ data/*
 
 models/*
 !models/.gitkeep
+!models/*.h5
 
 outputs/*
 !outputs/.gitkeep
