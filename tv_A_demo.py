@@ -167,7 +167,7 @@ demo = gr.Interface(
     description="""
 Upload ảnh xe để hệ thống dự đoán.
 
-Mô hình sử dụng MLP Neural Network.
+Mô hình sử dụng CNN.
 """,
 
     examples=[
